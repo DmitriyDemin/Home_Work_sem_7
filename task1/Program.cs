@@ -27,7 +27,13 @@ namespace Recursion
                 M = N;
                 N = temp;
             }
-            Console.Write("натуральные числа в заданном диапазоне:  ");
+            if (M == N || ((M + 1) == N))
+            {
+                Console.Write("в заданном диапазоне натуральных чисел нет");/*на случай ошибки ввода*/
+                return;
+            }
+            else
+                Console.Write("натуральные числа в заданном диапазоне:  ");
             OutputOfNumbers(M, N);
         }
     }
