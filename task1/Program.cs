@@ -7,39 +7,29 @@ namespace Recursion
     {
         public static void Main()
         {
-            
-            void OutputOfNumbers(int M, int N)
+            void OutputOfNumbers(int first, int last)
             {
-                Console.Write($"{M+1}  "); 
-                if (M == N-2)
-                Console.WriteLine();
-                else OutputOfNumbers(M+1, N);  
-                // Console.Write($"{M+1}  ");         
+                Console.Write($"{first + 1}  ");
+                if (first == last - 2)
+                    Console.WriteLine();
+                else OutputOfNumbers(first + 1, last);
+                /* сведений о конктретном типе числового промежутка в условиях задачи нет, выводятся числа не 
+                включая границ промежутка*/
             }
-
             Console.Clear();
             Console.Write("Введите значение начала диапазона натуральных чисел:  ");
             int M = int.Parse(Console.ReadLine()!);
             Console.Write("Введите значение окончания диапазона натуральных чисел:  ");
             int N = int.Parse(Console.ReadLine()!);
+            if (M > N) /*на случай ошибки ввода*/
+            {
+                int temp = M;
+                M = N;
+                N = temp;
+            }
             Console.Write("натуральные числа в заданном диапазоне:  ");
-            OutputOfNumbers(M,N);
+            OutputOfNumbers(M, N);
         }
     }
 }
 
-// string printNumbers(int n){
-//     if (n == 1)
-//         return "1 ";
-//     return printNumbers(n - 1) + $"{n} ";
-// }
-// /* f = printNumbers
-// f(5) -> f(4) + "5 " = "1 2 3 4 5 "
-//         |
-//         f(3) + "4 "
-//         |
-//         f(2) + "3 "
-//         |
-//         f(1) + "2 "
-//         |
-//         "1 "
