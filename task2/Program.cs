@@ -10,24 +10,25 @@ namespace Recursion
         {
             int Ackerman(int m, int n)
             {
-                if (m == 0)
+                while (m != 0)
                 {
-                    return n + 1;
-                    // }
-                    // if else (m > 0 & n == 0){
-                    //     Ackerman(m - 1, 1);
-                    // }
-                    // if else (m > 0 & n > 0){
-                    //     Ackerman(m - 1, Ackerman(m - 1, 1));
-                     }
-                     return n;
-            }
-                    Console.WriteLine(Ackerman(0, 0));
-
-
-
+                    if (m > 0 & n == 0)
+                    {
+                        return Ackerman(m - 1, 1);
+                    }
+                    else if (m > 0 & n > 0)
+                        return Ackerman(m - 1, Ackerman(m, n-1));
                 }
-
-            }
+                return n + 1;
+             }
+            Console.Clear();
+            Console.Write("Введите значение аргумента m:  ");
+            int m = int.Parse(Console.ReadLine()!);
+            Console.Write("Введите значение аргумента n:  ");
+            int n = int.Parse(Console.ReadLine()!);
+            Console.WriteLine($"Значение функции Аккермана для аргументов {m} и {n} равно {Ackerman(m, n)}");
         }
-    
+
+    }
+}
+
